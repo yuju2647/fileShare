@@ -1,0 +1,11 @@
+venv/
+database_config.py
+web_config.py
+*.pyc
+.idea/*
+.DS_Store
+cache_datas/
+*.log
+local_main.py
+unit_test/
+scripts_local/
