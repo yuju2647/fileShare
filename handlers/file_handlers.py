@@ -6,10 +6,11 @@ __author__ = 'yujun huang'
 from utils import router
 
 import os
-import logging
+import glob
 import json
-from utils import path
+import logging
 import base_handler
+from utils import path
 
 @router.Route("/console/file_upload")
 class FileUploadHandler(base_handler.BaseHandler):
@@ -53,6 +54,16 @@ class FileUploadHandler(base_handler.BaseHandler):
                         logging.info('remove complect')
                         break
                     chunk += 1
+
+
+@router.Route("/console/view_files")
+class FilesViewHandler(base_handler.BaseHandler):
+
+    def get(self):
+        upload_path = path.get_upload_path()
+        filenames = glob.glob(os.path.join(upload_path, '*'))
+
+        pass
 
 
 if __name__ == '__main__':

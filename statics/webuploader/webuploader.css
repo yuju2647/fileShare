@@ -7,18 +7,21 @@
     clip: rect(1px,1px,1px,1px);
 }
 .webuploader-pick {
-	position: relative;
+	position: fixed;
+	top: 50%;
+	left: 35%;
 	display: inline-block;
 	cursor: pointer;
-	background: #00b7ee;
-	padding: 10px 15px;
+	background: #11a44b;
+	padding: 15px 25px;
 	color: #fff;
 	text-align: center;
+	font-size: 50px;
 	border-radius: 3px;
 	overflow: hidden;
 }
 .webuploader-pick-hover {
-	background: #00a2d4;
+	background: #11a44b;
 }
 
 .webuploader-pick-disable {
