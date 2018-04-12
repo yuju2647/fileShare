@@ -62,9 +62,27 @@ class FilesViewHandler(base_handler.BaseHandler):
     def get(self):
         upload_path = path.get_upload_path()
         filenames = glob.glob(os.path.join(upload_path, '*'))
+        file_names = sorted([ os.path.basename(filename) for filename in filenames])
+        self.render("view_files.html", **{"file_names" : file_names})
 
-        pass
 
+@router.Route("/console/download_file")
+class FileDownloadHandler(base_handler.BaseHandler):
+
+    def get(self):
+        upload_path = path.get_upload_path()
+        file_name = self.get_argument("file_name")
+        filename = os.path.join(upload_path, file_name)
+        self.set_header("Content-type", "application/octet-stream")
+        self.set_header("Content-disposition", "attachment; filename={}".format(file_name))
+        buf_size = 4069
+        with open(filename, 'rb') as input:
+            while True:
+                by = input.read(buf_size)
+                if not by:
+                    break
+                self.write(by)
+        self.finish()
 
 if __name__ == '__main__':
     pass

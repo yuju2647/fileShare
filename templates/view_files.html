@@ -5,6 +5,9 @@
     <title>已共享的文件</title>
 </head>
 <body>
-
+    {% for file_name in file_names %}
+        <a href="/console/download_file?file_name={{ file_name }}">{{ file_name }}</a>
+        <br/><br/>
+    {% end %}
 </body>
 </html>
