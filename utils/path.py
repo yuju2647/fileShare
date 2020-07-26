@@ -63,5 +63,3 @@ def check_repeat_filename(filename_path, num=1):
 
 if __name__ == '__main__':
     p = check_repeat_filename(__file__)
-    open(p,'w')
-    print 'debug'

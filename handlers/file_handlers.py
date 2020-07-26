@@ -9,11 +9,11 @@ import os
 import glob
 import json
 import logging
-import base_handler
+from handlers.base_handler import BaseHandler
 from utils import path
 
 @router.Route("/console/file_upload")
-class FileUploadHandler(base_handler.BaseHandler):
+class FileUploadHandler(BaseHandler):
 
     def get(self):
         self.render('file_upload.html')
@@ -57,7 +57,7 @@ class FileUploadHandler(base_handler.BaseHandler):
 
 
 @router.Route("/console/view_files")
-class FilesViewHandler(base_handler.BaseHandler):
+class FilesViewHandler(BaseHandler):
 
     def get(self):
         upload_path = path.get_upload_path()
@@ -67,7 +67,7 @@ class FilesViewHandler(base_handler.BaseHandler):
 
 
 @router.Route("/console/download_file")
-class FileDownloadHandler(base_handler.BaseHandler):
+class FileDownloadHandler(BaseHandler):
 
     def get(self):
         upload_path = path.get_upload_path()

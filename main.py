@@ -10,17 +10,12 @@ import tornado.web
 import tornado.ioloop
 import tornado.options
 import tornado.httpserver
-import web_config
 import other_config
 import sys
 from handlers import *
 from application import Application
-from tornado.options import define,options
+from tornado.options import define, options
 
-
-
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 def main():
     tornado.options.parse_command_line()
@@ -35,5 +30,5 @@ def main():
     tornado.ioloop.IOLoop.instance().start()
 
 if __name__ == '__main__':
-    define("port", default=web_config.APP_PORT, type=int)
+    define("port", default=8809, type=int)
     main()
